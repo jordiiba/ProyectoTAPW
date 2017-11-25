@@ -14,9 +14,9 @@ class CreateMetodoTable extends Migration
     public function up()
     {
         Schema::create('metodo', function (Blueprint $table) {
-            $table->increments('id')->unique();
+            $table->increments('id');
             $table->string('nombre');
-            $table->bytea('imagen');
+            $table->binary('imagen');
         });
     }
 

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCuponTable extends Migration
+class CreateProductoTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,15 @@ class CreateCuponTable extends Migration
      */
     public function up()
     {
-        Schema::create('cupon', function (Blueprint $table) {
+        Schema::create('producto', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('clave');
+            $table->string('nombre');
             $table->text('descripcion');
-            $table->integer('descuento');
+            $table->double('precio_venta',8,2);
+            $table->integer('stock');
+            $table->binary('imagen');
+            $table->integer('id_categoria');
+            $table->foreign('id_categoria')->references('id')->on('categoria');
         });
     }
 
@@ -28,6 +32,6 @@ class CreateCuponTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cupon');
+        Schema::dropIfExists('producto');
     }
 }

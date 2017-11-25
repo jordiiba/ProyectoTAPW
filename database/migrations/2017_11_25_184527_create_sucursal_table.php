@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCuponTable extends Migration
+class CreateSucursalTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateCuponTable extends Migration
      */
     public function up()
     {
-        Schema::create('cupon', function (Blueprint $table) {
+        Schema::create('sucursal', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('clave');
-            $table->text('descripcion');
-            $table->integer('descuento');
+            $table->string('nombre');
+            $table->string('longitud');
+            $table->string('latitud');
         });
     }
 
@@ -28,6 +28,6 @@ class CreateCuponTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cupon');
+        Schema::dropIfExists('sucursal');
     }
 }

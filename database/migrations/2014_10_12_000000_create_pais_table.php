@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCuponTable extends Migration
+class CreatePaisTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateCuponTable extends Migration
      */
     public function up()
     {
-        Schema::create('cupon', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('clave');
-            $table->text('descripcion');
-            $table->integer('descuento');
+        Schema::create('pais', function (Blueprint $table) {
+            $table->increments('id')->unique();
+            $table->string('nombre');
         });
     }
 
@@ -28,6 +26,6 @@ class CreateCuponTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cupon');
+        Schema::dropIfExists('pais');
     }
 }
