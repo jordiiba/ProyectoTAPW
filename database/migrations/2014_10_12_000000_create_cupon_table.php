@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMetodoTable extends Migration
+class CreateCuponTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateMetodoTable extends Migration
      */
     public function up()
     {
-        Schema::create('metodo', function (Blueprint $table) {
+        Schema::create('cupon', function (Blueprint $table) {
             $table->increments('id')->unique();
-            $table->string('nombre');
-            $table->bytea('imagen');
+            $table->string('clave');
+            $table->text('descripcion');
+            $table->integer('descuento');
         });
     }
 
@@ -27,6 +28,6 @@ class CreateMetodoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('metodo');
+        Schema::dropIfExists('cupon');
     }
 }
