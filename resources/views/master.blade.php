@@ -9,16 +9,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- bootstrap-css -->
     @section('styles')
-    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
     <!--// bootstrap-css -->
     <!-- css -->
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" />
     <!--// css -->
-    <link rel="stylesheet" href="css/lightbox.css">
-    <link rel="stylesheet" href="css/owl.carousel.css" type="text/css" media="all">
-    <link href="css/owl.theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/lightbox.css">
+    <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css" media="all">
+    <link href="/css/owl.theme.css" rel="stylesheet">
     <!-- font-awesome icons -->
-    <link href="css/font-awesome.css" rel="stylesheet">
+    <link href="/css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons -->
     <!-- font -->
     <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
@@ -26,8 +26,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!-- //font -->
     @show
     @section('javascripts')
-    <script src="js/jquery-1.11.1.min.js"></script>
-    <script src="js/bootstrap.js"></script>
+    <script src="/js/jquery-1.11.1.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -87,7 +87,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
                 <div class="wthree-banner">
                     <div class="slider">
-                        <script src="js/responsiveslides.min.js"></script>
+                        <script src="/js/responsiveslides.min.js"></script>
                         <script>
                             // You can also use "$(window).load(function() {"
                             $(function () {
@@ -434,7 +434,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </a>
             </div>
             <div class="clearfix"> </div>
-            <script src="js/lightbox-plus-jquery.min.js"> </script>
+            <script src="/js/lightbox-plus-jquery.min.js"> </script>
         </div>
     </div>
 </div>
@@ -759,8 +759,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </div>
 @show
 <!-- //footer -->
-<script src="js/jarallax.js"></script>
-<script src="js/SmoothScroll.min.js"></script>
+<script src="/js/jarallax.js"></script>
+<script src="/js/SmoothScroll.min.js"></script>
 <script type="text/javascript">
     /* init Jarallax */
     $('.jarallax').jarallax({
@@ -769,9 +769,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         imgHeight: 768
     })
 </script>
-<script src="js/responsiveslides.min.js"></script>
-<script type="text/javascript" src="js/move-top.js"></script>
-<script type="text/javascript" src="js/easing.js"></script>
+<script src="/js/responsiveslides.min.js"></script>
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
 <!-- here stars scrolling icon -->
 <script type="text/javascript">
     $(document).ready(function() {
@@ -790,6 +790,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </script>
 <!-- //here ends scrolling icon -->
 <!-- Tabs-JavaScript -->
-<script src="js/owl.carousel.js"></script>
+<script src="/js/owl.carousel.js"></script>
 </body>
 </html>

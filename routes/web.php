@@ -24,4 +24,6 @@ Route::prefix('categoria')->group(function () {
     Route::get('/index', 'CategoriaController@index');
     Route::get('/detalle/{id}', 'CategoriaController@show');
     Route::post('/inserta', 'CategoriaController@store');
+    Route::put('/actualiza/{id}', 'CategoriaController@update');
+    Route::delete('/borra/{id}', 'CategoriaController@destroy');
 });
