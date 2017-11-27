@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('/prueba', function(){
     return view('prueba');
 });
+
+//Route::resource('categoria','CategoriaController');
+Route::prefix('categoria')->group(function () {
+    Route::get('/index', 'CategoriaController@index');
+    Route::get('/detalle/{id}', 'CategoriaController@show');
+    Route::post('/inserta', 'CategoriaController@store');
+});
