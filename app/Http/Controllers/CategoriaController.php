@@ -34,7 +34,7 @@ class CategoriaController extends Controller
     public function create()
     {
         //
-        return View::make('categoria.inserta');
+        return View::make('categoria.insertar');
     }
 
     /**
