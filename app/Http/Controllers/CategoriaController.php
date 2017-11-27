@@ -23,7 +23,7 @@ class CategoriaController extends Controller
         //return JsonResponse::create($categorias);
         $data=array();
         $data['categorias'] = $categorias;
-        return View::make('categoria.index')->with($data);
+        return View::make('categoria.muestra')->with($data);
     }
 
     /**
