@@ -18,5 +18,3 @@ Route::get('/', function () {
 Route::get('/prueba', function(){
     return view('prueba');
 });
-
-Route::get('/pais', 'ApiController@get_pais');
