@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('titulo', 'Inicio')
+@section('titulo', 'Inicio - Categoria')
 
 @section('styles')
     @parent
@@ -16,17 +16,17 @@
 
 @section('contenido')
     <a href="/categoria/vista_inserta">Agregar</a>
-    <table id="tabla">
+    <table id="tabla" class="table table-striped">
         <thead>
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Modificar</th>
-            <th>Eliminar</th>
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Eliminar</th>
         </thead>
         <tbody>
             @foreach($categorias as $categoria)
                 <tr>
-                    <td>{{$categoria->id}}</td>
+                    <td scope="col">{{$categoria->id}}</td>
                     <td>{{$categoria->nombre}}</td>
                     <td><a href="/categoria/vista_actualiza/{{$categoria->id}}">Modificar</a></td>
                     <td><a href="/categoria/vista_borra/{{$categoria->id}}">Eliminar</a></td>
@@ -34,7 +34,10 @@
             @endforeach
         </tbody>
         <tfoot>
-
+            <th scope="col">Id</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Modificar</th>
+            <th scope="col">Eliminar</th>
         </tfoot>
     </table>
 @stop
