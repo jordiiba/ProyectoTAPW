@@ -19,6 +19,7 @@ Route::get('/prueba', function(){
     return view('prueba');
 });
 
+//Route::resource('categoria','CategoriaController');
 Route::prefix('categoria')->group(function () {
     Route::get('/index', 'CategoriaController@index');
     Route::get('/detalle/{id}', 'CategoriaController@show');
@@ -27,6 +28,7 @@ Route::prefix('categoria')->group(function () {
     Route::delete('/borra/{id}', 'CategoriaController@destroy');
     Route::get('/vista_inserta', 'CategoriaController@create');
     Route::get('/vista_actualiza/{id}', 'CategoriaController@edit');
+    Route::get('/vista_borra/{id}', 'CategoriaController@delete');
     Route::get('/vista_borra/{id}', 'CategoriaController@delete');
 });
 
@@ -39,6 +41,19 @@ Route::prefix('producto')->group(function () {
     Route::get('/vista_inserta', 'ProductoController@create');
     Route::get('/vista_actualiza/{id}', 'ProductoController@edit');
     Route::get('/vista_borra/{id}', 'ProductoController@delete');
+    Route::get('/vista_borra/{id}', 'ProductoController@delete');
+});
+
+Route::prefix('cupon')->group(function () {
+    Route::get('/index', 'CuponController@index');
+    Route::get('/detalle/{id}', 'CuponController@show');
+    Route::post('/inserta', 'CuponController@store');
+    Route::put('/actualiza/{id}', 'CuponController@update');
+    Route::delete('/borra/{id}', 'CuponController@destroy');
+    Route::get('/vista_inserta', 'CuponController@create');
+    Route::get('/vista_actualiza/{id}', 'CuponController@edit');
+    Route::get('/vista_borra/{id}', 'CuponController@delete');
+    Route::get('/vista_borra/{id}', 'CuponController@delete');
 });
 
 Route::prefix('proveedor')->group(function () {
@@ -49,5 +64,6 @@ Route::prefix('proveedor')->group(function () {
     Route::delete('/borra/{id}', 'ProveedorController@destroy');
     Route::get('/vista_inserta', 'ProveedorController@create');
     Route::get('/vista_actualiza/{id}', 'ProveedorController@edit');
+    Route::get('/vista_borra/{id}', 'ProveedorController@delete');
     Route::get('/vista_borra/{id}', 'ProveedorController@delete');
 });

@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <title>Proyecto-Tienda - @yield('titulo')</title>
+    <title>@yield('titulo')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Delicious Food Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,

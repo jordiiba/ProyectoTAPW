@@ -4,11 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use SebastianBergmann\Environment\Console;
 use View;
 
-class ProveedorController extends Controller
+class CuponController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,11 +17,10 @@ class ProveedorController extends Controller
      */
     public function index()
     {
-        $proveedores = DB::table('proveedor')->orderBy('id', 'asc')->get();
-
+        $cupones = DB::table('cupon')->orderBy('id', 'asc')->get();
         $data=array();
-        $data['proveedores'] = $proveedores;
-        return View::make('proveedor.muestra')->with($data);
+        $data['cupones'] = $cupones;
+        return View::make('cupon.muestra')->with($data);
     }
 
     /**
@@ -32,7 +31,7 @@ class ProveedorController extends Controller
     public function create()
     {
         //
-        return View::make('proveedor.insertar');
+        return View::make('cupon.insertar');
     }
 
     /**
@@ -43,29 +42,35 @@ class ProveedorController extends Controller
      */
     public function store(Request $request)
     {
+        //dd('entra al metodo');
         $response = new \stdClass();
 
-        if (!$request->has('nombre'))
-        {
+        if (!$request->has('clave')) {
             $response->success =false;
-            $response->mensaje = 'no se recibio nombre';
+            $response->mensaje = 'no se recibio clave';
             return JsonResponse::create($response);
         }
-        if (!$request->has('direccion'))
-        {
+        if (!$request->has('descripcion')) {
             $response->success =false;
-            $response->mensaje = 'no se recibio direccion';
+            $response->mensaje = 'no se recibio descripcion';
+            return JsonResponse::create($response);
+        }
+        if (!$request->has('descuento')) {
+            $response->success =false;
+            $response->mensaje = 'no se recibio descuento';
             return JsonResponse::create($response);
         }
 
-        DB::table('proveedor')
-            ->insert(
-                ['nombre' => $request->nombre,
-                'direccion' => $request->direccion]
+        DB::table('cupon')
+            ->insert([
+                'clave' => $request->clave,
+                'descripcion' => $request->descripcion,
+                'descuento' => $request->descuento]
             );
 
         $response->success = true;
         return JsonResponse::create($response);
+
     }
 
     /**
@@ -76,8 +81,8 @@ class ProveedorController extends Controller
      */
     public function show($id)
     {
-        $proveedores = DB::table('proveedor')->where('id', '=', $id)->first();
-        return JsonResponse::create($proveedores);
+        $cupon = DB::table('cupon')->where('id', '=', $id)->first();
+        return JsonResponse::create($cupon);
     }
 
     /**
@@ -88,8 +93,9 @@ class ProveedorController extends Controller
      */
     public function edit($id)
     {
-        $proveedores = DB::table('proveedor')->where('id', '=', $id)->first();
-        return View::make('proveedor.actualizar')->with(['proveedor' => $proveedores]);
+        //
+        $cupon = DB::table('cupon')->where('id', '=', $id)->first();
+        return View::make('cupon.actualizar')->with(['cupon' => $cupon]);
     }
 
     /**
@@ -101,25 +107,36 @@ class ProveedorController extends Controller
      */
     public function update(Request $request, $id)
     {
+        //
         $response = new \stdClass();
 
-        if (!$request->has('nombre')) {
+        if (!$request->has('clave')) {
             $response->success =false;
-            $response->mensaje = 'no se recibio nombre';
+            $response->mensaje = 'no se recibio clave';
             return JsonResponse::create($response);
         }
-        $proveedores = DB::table('proveedor')->where('id', '=', $id)->first();
-        if(!$proveedores){
+        if (!$request->has('descripcion')) {
+            $response->success =false;
+            $response->mensaje = 'no se recibio descripcion';
+            return JsonResponse::create($response);
+        }
+        if (!$request->has('descuento')) {
+            $response->success =false;
+            $response->mensaje = 'no se recibio descuento';
+            return JsonResponse::create($response);
+        }
+
+        $cupon = DB::table('cupon')->where('id', '=', $id)->first();
+        if(!$cupon){
             $response->success =false;
             $response->mensaje = 'no existe el elemento con el id = '.$id;
             return JsonResponse::create($response);
         }
 
-        DB::table('proveedor')
+        DB::table('cupon')
             ->where('id', '=', $id)
             ->update(
-                ['nombre' => $request->nombre],
-                ['direccion' => $request->direccion]
+                ['clave' => $request->clave,'descripcion' => $request->descripcion,'descuento' => $request->descuento]
             );
 
         $response->success = true;
@@ -136,14 +153,13 @@ class ProveedorController extends Controller
     {
         //
         $response = new \stdClass();
-
-        $proveedores = DB::table('proveedor')->where('id', '=', $id)->first();
-        if(!$proveedores){
+        $cupon = DB::table('cupon')->where('id', '=', $id)->first();
+        if(!$cupon){
             $response->success =false;
             $response->mensaje = 'no existe el elemento con el id = '.$id;
             return JsonResponse::create($response);
         }
-        DB::table('proveedor')
+        DB::table('cupon')
             ->where('id', '=', $id)
             ->delete();
 
@@ -160,7 +176,8 @@ class ProveedorController extends Controller
      */
     public function delete($id)
     {
-        $proveedores = DB::table('proveedor')->where('id', '=', $id)->first();
-        return View::make('proveedor.borrar')->with(['proveedor' => $proveedores]);
+        //
+        $cupon = DB::table('cupon')->where('id', '=', $id)->first();
+        return View::make('cupon.borrar')->with(['cupon' => $cupon]);
     }
 }

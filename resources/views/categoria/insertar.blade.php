@@ -21,7 +21,7 @@
             <div class="form-group">
                 <label for="exampleInputEmail1">Nombre</label>
                 <input id="nombre" class="form-control" type="text" placeholder="Nombre">
-                <small class="form-text text-muted">Ingrese nombre de la categoria</small>
+                <small class="form-text text-muted">Ingrese el nombre de la categoria</small>
             </div>
             <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
