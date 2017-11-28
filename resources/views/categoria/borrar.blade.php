@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('titulo', 'Actualiza - Categoria')
+@section('titulo', 'Borra - Categoria')
 
 @section('styles')
     @parent
@@ -15,11 +15,21 @@
 @stop
 
 @section('contenido')
+    <br><br><br>
     <form action="#" method="POST" id="form_categoria">
-        <input id="id" type="text" value="{!!$categoria->id!!}" disabled>
-        <input id="nombre" type="text" value = "{{$categoria->nombre}}">
-        <input type="submit" value="Actualiza">
+        <div style="margin-left: 30%; margin-right: 30%">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Id</label>
+                <input id="id" class="form-control" type="text" value="{!!$categoria->id!!}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input id="nombre" class="form-control" type="text" value = "{{$categoria->nombre}}" disabled>
+            </div>
+            <button type="submit" class="btn btn-primary">Eliminar</button>
+        </div>
     </form>
+    <br><br><br>
 @stop
 
 @section('javascripts2')
@@ -103,7 +113,7 @@
             /*+---------------------------------------------------------------+
               |   Ventana de alerta antes de enviar formulario                |
               +---------------------------------------------------------------+*/
-            if (confirm('¿Estas seguro de enviar los datos ingresados?')) {
+            if (confirm('¿Estas seguro de eliminar los datos?')) {
                 // if true do nothing
             } else { // if false regresa al formulario
                 //myMask.hidePleaseWait();
@@ -115,11 +125,8 @@
             var data = $(this).serializeArray();
             //console.log(data);
             var request = $.ajax({
-                url: '/categoria/actualiza/{!!$categoria->id!!}',
-                type: "PUT",
-                data: {
-                    nombre: $('#nombre').val()
-                }
+                url: '/categoria/borra/{!!$categoria->id!!}',
+                type: "DELETE",
 
             });
             console.log(request);
@@ -130,7 +137,7 @@
                 console.log(request);
                 console.log(response);
                 if (response.success === true) {
-                    alert("Registro modificado correctamente!");
+                    alert("Registro eliminado correctamente!");
                     location.href = "/categoria/index";
                 } else {
                     alert("Error al crear registro: " + response.mensaje);

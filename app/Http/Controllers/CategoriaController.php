@@ -21,7 +21,7 @@ class CategoriaController extends Controller
 
         $data=array();
         $data['categorias'] = $categorias;
-        return View::make('categoria.index')->with($data);
+        return View::make('categoria.muestra')->with($data);
     }
 
     /**
@@ -32,7 +32,7 @@ class CategoriaController extends Controller
     public function create()
     {
         //
-        return View::make('categoria.inserta');
+        return View::make('categoria.insertar');
     }
 
     /**
@@ -88,7 +88,7 @@ class CategoriaController extends Controller
     {
         //
         $categoria = DB::table('categoria')->where('id', '=', $id)->first();
-        return View::make('categoria.actualiza')->with(['categoria' => $categoria]);
+        return View::make('categoria.actualizar')->with(['categoria' => $categoria]);
     }
 
     /**
@@ -161,6 +161,6 @@ class CategoriaController extends Controller
     {
         //
         $categoria = DB::table('categoria')->where('id', '=', $id)->first();
-        return View::make('categoria.borra')->with(['categoria' => $categoria]);
+        return View::make('categoria.borrar')->with(['categoria' => $categoria]);
     }
 }

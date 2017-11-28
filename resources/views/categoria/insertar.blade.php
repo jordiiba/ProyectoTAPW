@@ -15,10 +15,18 @@
 @stop
 
 @section('contenido')
+    <br><br><br>
     <form action="#" method="POST" id="form_categoria">
-        <input id="nombre" type="text">
-        <input type="submit" value="Agregar">
+        <div style="margin-left: 30%; margin-right: 30%">
+            <div class="form-group">
+                <label for="exampleInputEmail1">Nombre</label>
+                <input id="nombre" class="form-control" type="text" placeholder="Nombre">
+                <small class="form-text text-muted">Ingrese nombre de la categoria</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Agregar</button>
+        </div>
     </form>
+    <br><br><br>
 @stop
 
 @section('javascripts2')
