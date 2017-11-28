@@ -155,12 +155,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <nav>
                                 <ul class="nav navbar-nav">
                                     <li class="active"><a href="/">Inicio</a></li>
-                                    <li><a href="#about" class="scroll">Acerca de</a></li>
-                                    <li><a href="#services" class="scroll">Servicios</a></li>
-                                    <li><a href="#specials" class="scroll">Especial</a></li>
-                                    <li><a href="#team" class="scroll">Equipo</a></li>
-                                    <li><a href="#news" class="scroll">Noticias</a></li>
-                                    <li><a href="#mail" class="scroll">Contacto</a></li>
+                                    <li><a href="/cliente/index" class="active">Clientes</a></li>
+                                    <li><a href="/categoria/index" class="active">Categorias</a></li>
+                                    <li><a href="/producto/index" class="active">Productos</a></li>
+                                    <li><a href="/proveedor/index" class="active">Proveedor</a></li>
+                                    <li><a href="/cupon/index" class="active">Cupones</a></li>
                                     <li><a href="#" data-toggle="modal" data-target="#myModal" class="scroll">Login</a></li>
                                 </ul>
                             </nav>

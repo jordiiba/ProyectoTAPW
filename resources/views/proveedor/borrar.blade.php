@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('titulo', 'Borra - Categoria')
+@section('titulo', 'Borra - Proveedor')
 
 @section('styles')
     @parent

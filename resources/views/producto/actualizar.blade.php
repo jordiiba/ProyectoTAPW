@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('titulo', 'Actualiza - Categoria')
+@section('titulo', 'Actualiza - Producto')
 
 @section('styles')
     @parent
