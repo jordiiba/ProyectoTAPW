@@ -17,6 +17,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="/css/lightbox.css">
     <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css" media="all">
     <link href="/css/owl.theme.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <!-- font-awesome icons -->
     <link href="/css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons -->
@@ -28,6 +29,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @section('javascripts')
     <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="/js/bootstrap.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
