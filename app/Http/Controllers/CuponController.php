@@ -62,10 +62,10 @@ class CuponController extends Controller
         }
 
         DB::table('cupon')
-            ->insert(
-                ['clave' => $request->clave,
-                    'descripcion' => $request->descripcion,
-                    'descuento' => $request->descuento]
+            ->insert([
+                'clave' => $request->clave,
+                'descripcion' => $request->descripcion,
+                'descuento' => $request->descuento]
             );
 
         $response->success = true;

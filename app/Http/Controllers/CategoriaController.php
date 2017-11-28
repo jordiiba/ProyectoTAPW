@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
 use View;
 
@@ -16,11 +17,8 @@ class CategoriaController extends Controller
      */
     public function index()
     {
-        //traer catgorias de base de datos
-        //$categorias = Categoria::all();
-        //dd($categorias);
         $categorias = DB::table('categoria')->orderBy('id', 'asc')->get();
-        //return JsonResponse::create($categorias);
+
         $data=array();
         $data['categorias'] = $categorias;
         return View::make('categoria.muestra')->with($data);
