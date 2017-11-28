@@ -90,7 +90,7 @@ class CategoriaController extends Controller
     {
         //
         $categoria = DB::table('categoria')->where('id', '=', $id)->first();
-        return View::make('categoria.actualiza')->with(['categoria' => $categoria]);
+        return View::make('categoria.actualizar')->with(['categoria' => $categoria]);
     }
 
     /**
@@ -163,6 +163,6 @@ class CategoriaController extends Controller
     {
         //
         $categoria = DB::table('categoria')->where('id', '=', $id)->first();
-        return View::make('categoria.borra')->with(['categoria' => $categoria]);
+        return View::make('categoria.borrar')->with(['categoria' => $categoria]);
     }
 }

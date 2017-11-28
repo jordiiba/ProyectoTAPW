@@ -16,7 +16,6 @@
 
 @section('contenido')
     <br><br><br>
-    <center>
     <form action="#" method="POST" id="form_categoria">
         <div style="margin-left: 30%; margin-right: 30%">
             <div class="form-group">
@@ -27,7 +26,6 @@
             <button type="submit" class="btn btn-primary">Agregar</button>
         </div>
     </form>
-        </center>
     <br><br><br>
 @stop
 
