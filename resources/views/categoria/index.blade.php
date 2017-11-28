@@ -15,7 +15,7 @@
 @stop
 
 @section('contenido')
-    <a href="">Agregar</a>
+    <a href="/categoria/vista_inserta">Agregar</a>
     <table id="tabla">
         <thead>
             <th>Id</th>
@@ -28,8 +28,8 @@
                 <tr>
                     <td>{{$categoria->id}}</td>
                     <td>{{$categoria->nombre}}</td>
-                    <td></td>
-                    <td></td>
+                    <td><a href="/categoria/vista_actualiza/{{$categoria->id}}">Modificar</a></td>
+                    <td><a href="/categoria/vista_borra/{{$categoria->id}}">Eliminar</a></td>
                 </tr>
             @endforeach
         </tbody>

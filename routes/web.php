@@ -28,4 +28,5 @@ Route::prefix('categoria')->group(function () {
     Route::delete('/borra/{id}', 'CategoriaController@destroy');
     Route::get('/vista_inserta', 'CategoriaController@create');
     Route::get('/vista_actualiza/{id}', 'CategoriaController@edit');
+    Route::get('/vista_borra/{id}', 'CategoriaController@delete');
 });

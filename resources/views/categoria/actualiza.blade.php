@@ -18,7 +18,7 @@
     <form action="#" method="POST" id="form_categoria">
         <input id="id" type="text" value="{!!$categoria->id!!}" disabled>
         <input id="nombre" type="text" value = "{{$categoria->nombre}}">
-        <input type="submit" value="Agregar">
+        <input type="submit" value="Actualiza">
     </form>
 @stop
 
@@ -130,8 +130,8 @@
                 console.log(request);
                 console.log(response);
                 if (response.success === true) {
-                    alert("Registro creado correctamente!");
-                    //location.href = "/";
+                    alert("Registro modificado correctamente!");
+                    location.href = "/categoria/index";
                 } else {
                     alert("Error al crear registro: " + response.mensaje);
                 }

@@ -16,8 +16,9 @@
 
 @section('contenido')
     <form action="#" method="POST" id="form_categoria">
-        <input id="nombre" type="text">
-        <input type="submit" value="Agregar">
+        <input id="id" type="text" value="{!!$categoria->id!!}" disabled>
+        <input id="nombre" type="text" value = "{{$categoria->nombre}}" disabled>
+        <input type="submit" value="Elimina">
     </form>
 @stop
 
@@ -28,7 +29,6 @@
         $('#form_categoria').submit(function(e) {
             required_failed = false;
             e.preventDefault();
-
             /*+---------------------------------------------------------------+
             //| este codigo con el fin de obligar campos required en celular  |
               +---------------------------------------------------------------+
@@ -103,7 +103,7 @@
             /*+---------------------------------------------------------------+
               |   Ventana de alerta antes de enviar formulario                |
               +---------------------------------------------------------------+*/
-            if (confirm('¿Estas seguro de enviar los datos ingresados?')) {
+            if (confirm('¿Estas seguro de eliminar los datos?')) {
                 // if true do nothing
             } else { // if false regresa al formulario
                 //myMask.hidePleaseWait();
@@ -115,11 +115,8 @@
             var data = $(this).serializeArray();
             //console.log(data);
             var request = $.ajax({
-                url: '/categoria/inserta',
-                type: "POST",
-                data: {
-                    nombre: $('#nombre').val()
-                }
+                url: '/categoria/borra/{!!$categoria->id!!}',
+                type: "DELETE",
 
             });
             console.log(request);
@@ -130,7 +127,7 @@
                 console.log(request);
                 console.log(response);
                 if (response.success === true) {
-                    alert("Registro creado correctamente!");
+                    alert("Registro eliminado correctamente!");
                     location.href = "/categoria/index";
                 } else {
                     alert("Error al crear registro: " + response.mensaje);

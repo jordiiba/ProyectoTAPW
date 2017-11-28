@@ -152,4 +152,17 @@ class CategoriaController extends Controller
         return JsonResponse::create($response);
 
     }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function delete($id)
+    {
+        //
+        $categoria = DB::table('categoria')->where('id', '=', $id)->first();
+        return View::make('categoria.borra')->with(['categoria' => $categoria]);
+    }
 }
