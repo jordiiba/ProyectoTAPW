@@ -26,4 +26,6 @@ Route::prefix('categoria')->group(function () {
     Route::post('/inserta', 'CategoriaController@store');
     Route::put('/actualiza/{id}', 'CategoriaController@update');
     Route::delete('/borra/{id}', 'CategoriaController@destroy');
+    Route::get('/vista_inserta', 'CategoriaController@create');
+    Route::get('/vista_actualiza/{id}', 'CategoriaController@edit');
 });

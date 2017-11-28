@@ -791,5 +791,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //here ends scrolling icon -->
 <!-- Tabs-JavaScript -->
 <script src="/js/owl.carousel.js"></script>
+@section('javascripts2')
+@show
 </body>
 </html>
