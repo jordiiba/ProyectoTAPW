@@ -28,7 +28,6 @@ Route::prefix('categoria')->group(function () {
     Route::get('/vista_inserta', 'CategoriaController@create');
     Route::get('/vista_actualiza/{id}', 'CategoriaController@edit');
     Route::get('/vista_borra/{id}', 'CategoriaController@delete');
-    Route::get('/vista_borra/{id}', 'CategoriaController@delete');
 });
 
 Route::prefix('cupon')->group(function () {
@@ -40,5 +39,15 @@ Route::prefix('cupon')->group(function () {
     Route::get('/vista_inserta', 'CuponController@create');
     Route::get('/vista_actualiza/{id}', 'CuponController@edit');
     Route::get('/vista_borra/{id}', 'CuponController@delete');
-    Route::get('/vista_borra/{id}', 'CuponController@delete');
+});
+
+Route::prefix('cliente')->group(function () {
+    Route::get('/index', 'ClienteController@index');
+    Route::get('/detalle/{id}', 'ClienteController@show');
+    Route::post('/inserta', 'ClienteController@store');
+    Route::put('/actualiza/{id}', 'ClienteController@update');
+    Route::delete('/borra/{id}', 'ClienteController@destroy');
+    Route::get('/vista_inserta', 'ClienteController@create');
+    Route::get('/vista_actualiza/{id}', 'ClienteController@edit');
+    Route::get('/vista_borra/{id}', 'ClienteController@delete');
 });
