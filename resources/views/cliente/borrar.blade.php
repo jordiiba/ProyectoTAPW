@@ -1,6 +1,6 @@
 @extends('master')
 
-@section('titulo', 'Borra - Proveedor')
+@section('titulo', 'Borra - Cupon')
 
 @section('styles')
     @parent
@@ -16,19 +16,23 @@
 
 @section('contenido')
     <br><br><br>
-    <form action="#" method="POST" id="form_proveedor">
+    <form action="#" method="POST" id="form_cupon">
         <div style="margin-left: 30%; margin-right: 30%">
             <div class="form-group">
                 <label for="exampleInputEmail1">Id</label>
-                <input id="id" class="form-control" type="text" value="{!!$proveedor->id!!}" disabled>
+                <input id="id" class="form-control" type="text" value="{!!$cupon->id!!}" disabled>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Nombre</label>
-                <input id="nombre" class="form-control" type="text" value = "{{$proveedor->nombre}}" disabled>
+                <label for="exampleInputEmail1">Clave</label>
+                <input id="clave" class="form-control" type="text" value="{!!$cupon->clave!!}" disabled>
             </div>
             <div class="form-group">
-                <label for="exampleInputEmail1">Direccion</label>
-                <input id="direccion" class="form-control" type="text" value = "{{$proveedor->direccion}}" disabled>
+                <label for="exampleInputEmail1">Descripcion</label>
+                <input id="descripcion" class="form-control" type="text" value="{!!$cupon->descripcion!!}" disabled>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Descuento</label>
+                <input id="descuento" class="form-control" type="text" value="{!!$cupon->descuento!!}" disabled>
             </div>
             <button type="submit" class="btn btn-primary">Eliminar</button>
         </div>
@@ -40,7 +44,7 @@
     @parent
     <script type="text/javascript">
         var required_failed = false;
-        $('#form_proveedor').submit(function(e) {
+        $('#form_cupon').submit(function(e) {
             required_failed = false;
             e.preventDefault();
             /*+---------------------------------------------------------------+
@@ -48,9 +52,9 @@
               +---------------------------------------------------------------+
             */
             // vailda todos los input
-            $('#form_proveedor').find('input').each(function() {
+            $('#form_cupon').find('input').each(function() {
                 if ($(this).prop('required') == true) {
-                    console.log($(this).attr('name'));
+                    console.log($(this).attr('clave'));
                     console.log($(this).val());
                     if ($(this).val() == '' && required_failed == false) {
                         required_failed = true;
@@ -71,50 +75,6 @@
             //+----------------------------------------------------------------+
 
             /*+---------------------------------------------------------------+
-              |     validamos que el email tenga la estructura correcta       |
-              +---------------------------------------------------------------+ */
-            /*var x = document.forms["formreg"]["email"].value;
-            var atpos = x.indexOf("@");
-            var dotpos = x.lastIndexOf(".");
-            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
-                alert("ERROR: email incorrecto.\nPorfavor, ingrese una direccion de e-mail correcta");
-                required_failed = true;
-                $("#email").focus();
-                myMask.hidePleaseWait();
-                return false;
-            }*/
-            //+----------------------------------------------------------------+
-
-            /*+---------------------------------------------------------------+
-              |     validamos la ciudad y el estado                           |
-              +---------------------------------------------------------------+ */
-
-            /*if($('input:radio[name=extranjero]:checked').val() == 0) {
-                if ($("#select-estados").val() == "") {
-                    alert("ERROR: debe especificar un estado");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-                if ($("#select-ciudades").val() == "") {
-                    alert("ERROR: debe especificar una ciudad");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-            } else {
-                if ($("#pais").val().trim() == "") {
-                    alert("ERROR: debe especificar un pais");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-
-                if ($("#estado_extranjero").val().trim() == "") {
-                    alert("ERROR: debe especificar un estado");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-            }*/
-
-            /*+---------------------------------------------------------------+
               |   Ventana de alerta antes de enviar formulario                |
               +---------------------------------------------------------------+*/
             if (confirm('¿Estas seguro de eliminar los datos?')) {
@@ -129,7 +89,7 @@
             var data = $(this).serializeArray();
             //console.log(data);
             var request = $.ajax({
-                url: '/proveedor/borra/{!!$proveedor->id!!}',
+                url: '/cupon/borra/{!!$cupon->id!!}',
                 type: "DELETE",
 
             });
@@ -142,7 +102,7 @@
                 console.log(response);
                 if (response.success === true) {
                     alert("Registro eliminado correctamente!");
-                    location.href = "/proveedor/index";
+                    location.href = "/cupon/index";
                 } else {
                     alert("Error al crear registro: " + response.mensaje);
                 }

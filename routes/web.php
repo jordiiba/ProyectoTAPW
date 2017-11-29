@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('/master', function () {
     return view('master');
 });
 
-Route::get('/prueba', function(){
+Route::get('/', function(){
     return view('prueba');
 });
 
@@ -29,7 +29,6 @@ Route::prefix('categoria')->group(function () {
     Route::get('/vista_inserta', 'CategoriaController@create');
     Route::get('/vista_actualiza/{id}', 'CategoriaController@edit');
     Route::get('/vista_borra/{id}', 'CategoriaController@delete');
-    Route::get('/vista_borra/{id}', 'CategoriaController@delete');
 });
 
 Route::prefix('producto')->group(function () {
@@ -40,7 +39,6 @@ Route::prefix('producto')->group(function () {
     Route::delete('/borra/{id}', 'ProductoController@destroy');
     Route::get('/vista_inserta', 'ProductoController@create');
     Route::get('/vista_actualiza/{id}', 'ProductoController@edit');
-    Route::get('/vista_borra/{id}', 'ProductoController@delete');
     Route::get('/vista_borra/{id}', 'ProductoController@delete');
 });
 
@@ -53,7 +51,17 @@ Route::prefix('cupon')->group(function () {
     Route::get('/vista_inserta', 'CuponController@create');
     Route::get('/vista_actualiza/{id}', 'CuponController@edit');
     Route::get('/vista_borra/{id}', 'CuponController@delete');
-    Route::get('/vista_borra/{id}', 'CuponController@delete');
+});
+
+Route::prefix('cliente')->group(function () {
+    Route::get('/index', 'ClienteController@index');
+    Route::get('/detalle/{id}', 'ClienteController@show');
+    Route::post('/inserta', 'ClienteController@store');
+    Route::put('/actualiza/{id}', 'ClienteController@update');
+    Route::delete('/borra/{id}', 'ClienteController@destroy');
+    Route::get('/vista_inserta', 'ClienteController@create');
+    Route::get('/vista_actualiza/{id}', 'ClienteController@edit');
+    Route::get('/vista_borra/{id}', 'ClienteController@delete');
 });
 
 Route::prefix('proveedor')->group(function () {
@@ -64,6 +72,5 @@ Route::prefix('proveedor')->group(function () {
     Route::delete('/borra/{id}', 'ProveedorController@destroy');
     Route::get('/vista_inserta', 'ProveedorController@create');
     Route::get('/vista_actualiza/{id}', 'ProveedorController@edit');
-    Route::get('/vista_borra/{id}', 'ProveedorController@delete');
     Route::get('/vista_borra/{id}', 'ProveedorController@delete');
 });

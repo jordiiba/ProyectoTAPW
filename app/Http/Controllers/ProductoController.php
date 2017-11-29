@@ -18,7 +18,6 @@ class ProductoController extends Controller
     public function index()
     {
         $productos = DB::table('producto')->orderBy('id', 'asc')->get();
-
         $data=array();
         $data['productos'] = $productos;
         return View::make('producto.muestra')->with($data);
