@@ -124,7 +124,6 @@ class ClienteController extends Controller
 
         $response->success = true;
         return JsonResponse::create($response);
-
     }
 
     /**

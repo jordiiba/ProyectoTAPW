@@ -30,8 +30,10 @@ class ProductoController extends Controller
      */
     public function create()
     {
-        //
-        return View::make('producto.insertar');
+        $categorias = DB::table('categoria')->orderBy('id', 'asc')->get();
+        $data = array();
+        $data['categorias'] = $categorias;
+        return View::make('producto.insertar')->with($data);
     }
 
     /**
@@ -85,8 +87,11 @@ class ProductoController extends Controller
      */
     public function edit($id)
     {
+        $categorias = DB::table('categoria')->orderBy('id', 'asc')->get();
         $producto = DB::table('producto')->where('id', '=', $id)->first();
-        return View::make('producto.actualizar')->with(['producto' => $producto]);
+        return View::make('producto.actualizar')
+            ->with(['producto' => $producto])
+            ->with(['categorias' => $categorias]);
     }
 
     /**

@@ -42,7 +42,12 @@
 
             <div class="form-group">
                 <label for="exampleInputEmail1">Categoria</label>
-                <input id="id_categoria" class="form-control" type="text" value="{{$producto->id_categoria}}">
+                <select class="form-control" id="id_categoria">
+                    @foreach($categorias as $categoria)
+                        <option value="{{$categoria->id}}">{{$categoria->nombre}}</option>
+                    @endforeach
+                </select>
+
             </div>
             <button type="submit" class="btn btn-primary">Modificar</button>
         </div>
