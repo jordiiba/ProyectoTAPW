@@ -43,12 +43,6 @@
             </div>
 
             <div class="form-group">
-                <label for="exampleInputEmail1">Imagen</label>
-                <input id="imagen" class="form-control" type="text" placeholder="Imgen">
-                <small class="form-text text-muted">Una imagen</small>
-            </div>
-
-            <div class="form-group">
                 <label for="exampleInputEmail1">Categoria</label>
                 <input id="id_categoria" class="form-control" type="text" placeholder="Categoria">
                 <small class="form-text text-muted">Ingrese la categoria</small>
@@ -95,55 +89,7 @@
             if (required_failed == true) {
                 return;
             }
-            //+----------------------------------------------------------------+
 
-            /*+---------------------------------------------------------------+
-              |     validamos que el email tenga la estructura correcta       |
-              +---------------------------------------------------------------+ */
-            /*var x = document.forms["formreg"]["email"].value;
-            var atpos = x.indexOf("@");
-            var dotpos = x.lastIndexOf(".");
-            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= x.length) {
-                alert("ERROR: email incorrecto.\nPorfavor, ingrese una direccion de e-mail correcta");
-                required_failed = true;
-                $("#email").focus();
-                myMask.hidePleaseWait();
-                return false;
-            }*/
-            //+----------------------------------------------------------------+
-
-            /*+---------------------------------------------------------------+
-              |     validamos la ciudad y el estado                           |
-              +---------------------------------------------------------------+ */
-
-            /*if($('input:radio[name=extranjero]:checked').val() == 0) {
-                if ($("#select-estados").val() == "") {
-                    alert("ERROR: debe especificar un estado");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-                if ($("#select-ciudades").val() == "") {
-                    alert("ERROR: debe especificar una ciudad");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-            } else {
-                if ($("#pais").val().trim() == "") {
-                    alert("ERROR: debe especificar un pais");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-
-                if ($("#estado_extranjero").val().trim() == "") {
-                    alert("ERROR: debe especificar un estado");
-                    myMask.hidePleaseWait();
-                    return false;
-                }
-            }*/
-
-            /*+---------------------------------------------------------------+
-              |   Ventana de alerta antes de enviar formulario                |
-              +---------------------------------------------------------------+*/
             if (confirm('¿Estas seguro de enviar los datos ingresados?')) {
                 // if true do nothing
             } else { // if false regresa al formulario
@@ -163,7 +109,6 @@
                     descripcion: $('#descripcion').val(),
                     precio_venta: $('#precio_venta').val(),
                     stock: $('#stock').val(),
-                    imagen: $('#imagen').val(),
                     id_categoria: $('#id_categoria').val()
                 }
             });
