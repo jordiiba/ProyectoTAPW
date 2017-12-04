@@ -160,6 +160,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <li><a href="/producto/index" class="active">Productos</a></li>
                                     <li><a href="/proveedor/index" class="active">Proveedor</a></li>
                                     <li><a href="/cupon/index" class="active">Cupones</a></li>
+                                    <li><a href="/clientecupon/index" class="active">ClientesCupones</a></li>
                                     <li><a href="#" data-toggle="modal" data-target="#myModal" class="scroll">Login</a></li>
                                 </ul>
                             </nav>

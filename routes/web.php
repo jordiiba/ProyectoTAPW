@@ -29,6 +29,7 @@ Route::prefix('categoria')->group(function () {
     Route::get('/vista_inserta', 'CategoriaController@create');
     Route::get('/vista_actualiza/{id}', 'CategoriaController@edit');
     Route::get('/vista_borra/{id}', 'CategoriaController@delete');
+    Route::get('/servicio_index', 'CategoriaController@servicio_index');
 });
 
 Route::prefix('producto')->group(function () {
@@ -62,6 +63,7 @@ Route::prefix('cliente')->group(function () {
     Route::get('/vista_inserta', 'ClienteController@create');
     Route::get('/vista_actualiza/{id}', 'ClienteController@edit');
     Route::get('/vista_borra/{id}', 'ClienteController@delete');
+    Route::get('/servicio_index', 'ClienteController@servicio_index');
 });
 
 Route::prefix('proveedor')->group(function () {
@@ -73,4 +75,21 @@ Route::prefix('proveedor')->group(function () {
     Route::get('/vista_inserta', 'ProveedorController@create');
     Route::get('/vista_actualiza/{id}', 'ProveedorController@edit');
     Route::get('/vista_borra/{id}', 'ProveedorController@delete');
+});
+
+Route::prefix('clientecupon')->group(function () {
+    Route::get('/index', 'ClienteCuponController@index');
+    Route::get('/detalle/{id}', 'ClienteCuponController@show');
+    Route::post('/inserta', 'ClienteCuponController@store');
+    Route::put('/actualiza/{id}', 'ClienteCuponController@update');
+    Route::delete('/borra/{id}', 'ClienteCuponController@destroy');
+    Route::get('/vista_inserta', 'ClienteCuponController@create');
+    Route::get('/vista_actualiza/{id}', 'ClienteCuponController@edit');
+    Route::get('/vista_borra/{id}', 'ClienteCuponController@delete');
+});
+
+Route::prefix('apiPractica3')->group(function () {
+    Route::get('/cupon/{id}', 'ClienteCuponController@show');
+    Route::post('/valcliente', 'ClienteController@val');
+    Route::get('/perfil/{id}', 'ClienteController@perfil');
 });

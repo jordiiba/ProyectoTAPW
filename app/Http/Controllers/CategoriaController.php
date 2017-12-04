@@ -22,6 +22,22 @@ class CategoriaController extends Controller
         $data=array();
         $data['categorias'] = $categorias;
         return View::make('categoria.muestra')->with($data);
+        return JsonResponse::create($response);
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function servicio_index()
+    {
+        $categorias = DB::table('categoria')->orderBy('id', 'asc')->get();
+
+        $data=array();
+        $data['categorias'] = $categorias;
+        //return View::make('categoria.muestra')->with($data);
+        return JsonResponse::create($data);
     }
 
     /**

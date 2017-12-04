@@ -23,7 +23,24 @@ class ClienteController extends Controller
         $data = array();
         $data['clientes'] = $clientes;
         return View::make('cliente.muestra')->with($data);
+        return JsonResponse::create($response);
     }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function servicio_index()
+    {
+        $clientes = DB::table('cliente')->orderBy('cliente.id', 'asc')
+            ->join('ciudad', 'ciudad.id', '=', 'cliente.id_ciudad')
+            ->select('cliente.*', 'ciudad.nombre as ciudad')->get();
+        $data = array();
+        $data['clientes'] = $clientes;
+        return JsonResponse::create($data);
+    }
+
 
     /**
      * Show the form for creating a new resource.
@@ -246,6 +263,52 @@ class ClienteController extends Controller
 
         $response->success = true;
         return JsonResponse::create($response);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function val(Request $request)
+    {
+        //
+        $response = new \stdClass();
+        $cliente = DB::table('cliente')->where('usuario', '=', $request->usuario)->first();
+        if(!$cliente){
+            $response->success = false;
+            $response->mensaje = 'No existe el usuario = '.$request->usuario;
+            return JsonResponse::create($response);
+        }
+        $cliente = DB::table('cliente')->where('usuario', '=', $request->usuario)
+            ->where('contrasena', '=', $request->contrasena)->first();
+        if(!$cliente){
+            $response->success = false;
+            $response->mensaje = 'Contraseña incorrecta';
+            return JsonResponse::create($response);
+        }
+        $response->success = true;
+        $response->mensaje = 'Autenticado';
+        $response->id = $cliente->id;
+        return JsonResponse::create($response);
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function perfil($id)
+    {
+        $cliente = DB::table('cliente')
+            ->join('ciudad', 'ciudad.id', '=', 'cliente.id_ciudad')
+            ->select('cliente.usuario','cliente.nombres','cliente.apellidos',
+                'cliente.correo','cliente.direccion','cliente.telefono',
+                'ciudad.nombre as ciudad')
+            ->where('cliente.id', '=', $id)->first();
+        return JsonResponse::create($cliente);
     }
 
     /**
