@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="{{ app()->getLocale() }}">
 <head>
-    <title>@yield('titulo')</title>
+    <title>Proyecto-Tienda - @yield('titulo')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <meta name="keywords" content="Delicious Food Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
@@ -17,7 +17,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="/css/lightbox.css">
     <link rel="stylesheet" href="/css/owl.carousel.css" type="text/css" media="all">
     <link href="/css/owl.theme.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <!-- font-awesome icons -->
     <link href="/css/font-awesome.css" rel="stylesheet">
     <!-- //font-awesome icons -->
@@ -29,7 +28,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     @section('javascripts')
     <script src="/js/jquery-1.11.1.min.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript">
         jQuery(document).ready(function($) {
             $(".scroll").click(function(event){
@@ -793,7 +791,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //here ends scrolling icon -->
 <!-- Tabs-JavaScript -->
 <script src="/js/owl.carousel.js"></script>
-@section('javascripts2')
+@section('javascripts2')|
 @show
 </body>
 </html>

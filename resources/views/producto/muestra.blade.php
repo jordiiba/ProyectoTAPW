@@ -23,9 +23,9 @@
             <thead>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
                 <th scope="col">Precio Venta</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Imagen</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Modificar</th>
                 <th scope="col">Eliminar</th>
@@ -38,7 +38,6 @@
                         <td>{{$producto->descripcion}}</td>
                         <td>{{$producto->precio_venta}}</td>
                         <td>{{$producto->stock}}</td>
-                        <td>{{$producto->imagen}}</td>
                         <td>{{$producto->id_categoria}}</td>
                         <td><a href="/producto/vista_actualiza/{{$producto->id}}">Modificar</a></td>
                         <td><a href="/producto/vista_borra/{{$producto->id}}">Eliminar</a></td>
@@ -48,9 +47,9 @@
             <tfoot>
                 <th scope="col">Id</th>
                 <th scope="col">Nombre</th>
+                <th scope="col">Descripcion</th>
                 <th scope="col">Precio Venta</th>
                 <th scope="col">Stock</th>
-                <th scope="col">Imagen</th>
                 <th scope="col">Categoria</th>
                 <th scope="col">Modificar</th>
                 <th scope="col">Eliminar</th>
